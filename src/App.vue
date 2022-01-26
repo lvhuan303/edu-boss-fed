@@ -1,32 +1,56 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
+<script lang="ts">
+import Vue from 'vue'
+import request from '@/utils/request'
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+request({
+  method: 'GET',
+  url: '/boss/v2/api-docs?group=edu-boss-boot'
+}).then(res => {
+  console.log(res)
+})
+export default Vue.extend({
+  data () {
+    return {
+      a: 1,
+      b: '2',
+      c: 3,
+      d: {
+        a: 1
+      }
     }
+  },
+  methods: {
   }
+})
+</script>
+<!--<script>-->
+<!--export default {-->
+<!--  data () {-->
+<!--    return {-->
+<!--      a: 1,-->
+<!--      b: '2',-->
+<!--      c: 3,-->
+<!--      d: {-->
+<!--        a: 1-->
+<!--      }-->
+<!--    }-->
+<!--  },-->
+<!--  methods: {-->
+<!--    test () {-->
+<!--      this.a.abc()-->
+<!--    }-->
+<!--  }-->
+<!--}-->
+<!--</script>-->
+<style lang="scss" scoped>
+.test {
+  color: $success-color
 }
 </style>
