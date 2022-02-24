@@ -22,6 +22,7 @@
         </el-form-item>
       </el-form>
     </el-card>
+    <el-button @click="editResource(0)" size="mini">添加</el-button>
     <el-card class="box-card">
       <el-button @click="editResource(0)" size="mini">添加</el-button>
       <el-button @click="$router.push({ name:'resourceCate' })" size="mini">资源分类</el-button>
